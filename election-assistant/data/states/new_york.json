@@ -1,0 +1,26 @@
+{
+  "state_code": "NY",
+  "state_name": "New York",
+  "registration_deadline_days_before": 25,
+  "online_registration": true,
+  "online_registration_url": "https://voterreg.dmv.ny.gov/MotorVoter/",
+  "early_voting": true,
+  "early_voting_start_days_before": 10,
+  "mail_in_voting": "no-excuse",
+  "mail_in_voting_description": "Any registered voter can request an absentee ballot",
+  "voter_id_required": false,
+  "accepted_id_types": ["Driver's license", "Non-driver ID", "Utility bill", "Bank statement", "Government check", "Paycheck"],
+  "same_day_registration": false,
+  "election_office_phone": "1-800-FOR-VOTE (367-8683)",
+  "election_office_website": "https://www.elections.ny.gov",
+  "polling_hours": "6:00 AM - 9:00 PM",
+  "special_rules": [
+    "Early voting is available for 9 days before Election Day",
+    "Absentee ballots must be postmarked by Election Day and received within 7 days"
+  ],
+  "key_dates_override": {
+    "registration_deadline": "2026-10-09",
+    "early_voting_start": "2026-10-24",
+    "mail_ballot_request_deadline": "2026-10-27"
+  }
+}

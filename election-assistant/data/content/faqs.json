@@ -1,0 +1,64 @@
+{
+  "categories": [
+    {
+      "category": "Registration",
+      "questions": [
+        {
+          "question": "When is the voter registration deadline?",
+          "answer": "The deadline varies by state, typically 15-30 days before Election Day. Some states offer same-day registration. Check your state's specific deadline using our timeline tool.",
+          "tags": ["registration", "deadline"]
+        },
+        {
+          "question": "Can I register to vote online?",
+          "answer": "Most states offer online voter registration. You'll typically need a driver's license or state ID. Check if your state offers online registration in our state guide.",
+          "tags": ["registration", "online"]
+        },
+        {
+          "question": "What if I miss the registration deadline?",
+          "answer": "Some states offer same-day registration at polling places or early voting sites. If your state doesn't, you'll need to wait until the next election. Check your state's rules.",
+          "tags": ["registration", "deadline", "same-day"]
+        }
+      ]
+    },
+    {
+      "category": "Voting Methods",
+      "questions": [
+        {
+          "question": "What is early voting?",
+          "answer": "Early voting allows you to cast your ballot in person before Election Day. Not all states offer early voting. Check your state's early voting period and locations.",
+          "tags": ["early-voting", "voting-methods"]
+        },
+        {
+          "question": "How do I vote by mail?",
+          "answer": "Request an absentee/mail ballot from your election office. Some states send ballots automatically. Complete and return your ballot by the deadline - typically it must be postmarked by Election Day.",
+          "tags": ["mail-voting", "absentee", "voting-methods"]
+        },
+        {
+          "question": "Do I need an ID to vote?",
+          "answer": "ID requirements vary by state. Some require photo ID, others accept various forms of identification, and some require no ID at all. Check your state's specific requirements.",
+          "tags": ["voter-id", "requirements"]
+        }
+      ]
+    },
+    {
+      "category": "Election Day",
+      "questions": [
+        {
+          "question": "What should I bring to the polling place?",
+          "answer": "Bring your ID if required by your state. It's also helpful to bring your voter registration card and a sample ballot if you've prepared one. Check your state's ID requirements.",
+          "tags": ["election-day", "voter-id", "polling-place"]
+        },
+        {
+          "question": "What if my name isn't on the voter list?",
+          "answer": "Ask to vote with a provisional ballot. Election officials will verify your registration afterward. You may also be able to register on the spot if your state allows same-day registration.",
+          "tags": ["election-day", "provisional-ballot", "problems"]
+        },
+        {
+          "question": "What are polling hours?",
+          "answer": "Most polling places are open from early morning until evening, but hours vary by state. Typical hours are 6-7 AM to 7-8 PM. If you're in line when polls close, you can still vote.",
+          "tags": ["election-day", "polling-hours"]
+        }
+      ]
+    }
+  ]
+}

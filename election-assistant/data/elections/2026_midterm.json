@@ -1,0 +1,87 @@
+{
+  "election_id": "2026_midterm",
+  "election_name": "2026 Midterm Elections",
+  "election_date": "2026-11-03",
+  "election_type": "midterm",
+  "description": "Congressional and state-level elections",
+  "key_dates": [
+    {
+      "date": "2026-01-01",
+      "event": "Registration Period Opens",
+      "description": "Start registering to vote for the midterm elections",
+      "state_specific": false,
+      "urgency": "low",
+      "category": "registration"
+    },
+    {
+      "date": "2026-10-05",
+      "event": "Voter Registration Deadline",
+      "description": "Last day to register to vote in most states (varies by state)",
+      "state_specific": true,
+      "urgency": "high",
+      "category": "registration"
+    },
+    {
+      "date": "2026-10-20",
+      "event": "Early Voting Begins",
+      "description": "Early voting starts in many states (check your state)",
+      "state_specific": true,
+      "urgency": "medium",
+      "category": "voting"
+    },
+    {
+      "date": "2026-10-27",
+      "event": "Absentee Ballot Request Deadline",
+      "description": "Last day to request mail-in/absentee ballot in most states",
+      "state_specific": true,
+      "urgency": "high",
+      "category": "absentee"
+    },
+    {
+      "date": "2026-11-03",
+      "event": "Election Day",
+      "description": "General election day - polls open",
+      "state_specific": false,
+      "urgency": "critical",
+      "category": "voting"
+    },
+    {
+      "date": "2026-12-08",
+      "event": "Results Certification Deadline",
+      "description": "States certify election results",
+      "state_specific": true,
+      "urgency": "low",
+      "category": "post-election"
+    }
+  ],
+  "phases": [
+    {
+      "name": "Registration Period",
+      "start_date": "2026-01-01",
+      "end_date": "2026-10-05",
+      "description": "Check eligibility and register to vote",
+      "steps": ["check_eligibility", "gather_documents", "register_online_or_mail"]
+    },
+    {
+      "name": "Early Voting Period",
+      "start_date": "2026-10-20",
+      "end_date": "2026-11-02",
+      "description": "Vote early if available in your state",
+      "steps": ["find_early_voting_location", "bring_required_id", "cast_ballot"]
+    },
+    {
+      "name": "Election Day",
+      "start_date": "2026-11-03",
+      "end_date": "2026-11-03",
+      "description": "Vote at your polling place",
+      "steps": ["find_polling_place", "bring_id", "vote"]
+    },
+    {
+      "name": "Post-Election",
+      "start_date": "2026-11-04",
+      "end_date": "2026-12-08",
+      "description": "Results counting and certification",
+      "steps": ["track_results", "verify_vote_counted"]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}FAQ{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="page-header">
+        <h1>Frequently Asked Questions</h1>
+        <p>Common questions about voting and elections</p>
+    </div>
+
+    <div class="faq-container">
+        {% for category in faq.categories %}
+        <section class="faq-category">
+            <h2>{{ category.category }}</h2>
+            <div class="faq-questions">
+                {% for qa in category.questions %}
+                <div class="faq-item">
+                    <h3 class="faq-question">{{ qa.question }}</h3>
+                    <div class="faq-answer">{{ qa.answer }}</div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

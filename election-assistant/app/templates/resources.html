@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}Resources{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="page-header">
+        <h1>Voting Resources</h1>
+        <p>Official links and contact information</p>
+    </div>
+
+    {% if state %}
+    <div class="state-resources">
+        <h2>{{ state.state_name }} Resources</h2>
+
+        <div class="resource-grid">
+            {% if state.online_registration_url %}
+            <div class="resource-card">
+                <h3>Register Online</h3>
+                <p>Official state voter registration portal</p>
+                <a href="{{ state.online_registration_url }}" target="_blank" rel="noopener" class="btn btn-primary">
+                    Register to Vote
+                </a>
+            </div>
+            {% endif %}
+
+            <div class="resource-card">
+                <h3>State Election Office</h3>
+                <p>Official state election information</p>
+                <p><strong>Phone:</strong> {{ state.election_office_phone }}</p>
+                <a href="{{ state.election_office_website }}" target="_blank" rel="noopener" class="btn btn-secondary">
+                    Visit Website
+                </a>
+            </div>
+
+            {% if state.voter_id_required %}
+            <div class="resource-card">
+                <h3>Accepted ID Types</h3>
+                <p>{{ state.state_name }} requires photo ID to vote</p>
+                <ul>
+                    {% for id_type in state.accepted_id_types %}
+                    <li>{{ id_type }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="national-resources">
+        <h2>National Resources</h2>
+
+        <div class="resource-grid">
+            <div class="resource-card">
+                <h3>Vote.gov</h3>
+                <p>Official U.S. government voting information</p>
+                <a href="https://vote.gov" target="_blank" rel="noopener" class="btn btn-primary">Visit Site</a>
+            </div>
+
+            <div class="resource-card">
+                <h3>Election Assistance Commission</h3>
+                <p>Federal agency helping states run elections</p>
+                <a href="https://www.eac.gov" target="_blank" rel="noopener" class="btn btn-primary">Visit Site</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

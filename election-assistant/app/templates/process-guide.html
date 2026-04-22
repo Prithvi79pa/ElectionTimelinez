@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}How to Vote{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="page-header">
+        <h1>Step-by-Step Voting Guide</h1>
+        <p>Everything you need to know to register and vote</p>
+    </div>
+
+    <div class="process-steps">
+        {% for step in process.steps %}
+        <div class="process-step">
+            <div class="step-number">{{ loop.index }}</div>
+            <div class="step-content">
+                <h2>{{ step.title }}</h2>
+                <p class="step-description">{{ step.description }}</p>
+
+                <div class="step-details">
+                    <h3>What you need to know:</h3>
+                    <ul>
+                        {% for detail in step.details %}
+                        <li>{{ detail }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="step-action">
+                    <strong>Action:</strong> {{ step.action }}
+                </div>
+
+                <div class="step-meta">
+                    <span class="estimated-time">⏱️ {{ step.estimated_time }}</span>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

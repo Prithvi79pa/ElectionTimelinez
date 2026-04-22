@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Election Guide{% endblock %} - Your Election Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/accessibility.css') }}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+        <nav class="main-nav" role="navigation" aria-label="Main navigation">
+            <div class="container">
+                <a href="/" class="logo">
+                    <span class="logo-icon">🗳️</span>
+                    <span class="logo-text">Election Assistant</span>
+                </a>
+
+                <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <ul class="nav-links">
+                    <li><a href="/" class="{% if request.path == '/' %}active{% endif %}">Home</a></li>
+                    <li><a href="/timeline" class="{% if request.path == '/timeline' %}active{% endif %}">Timeline</a></li>
+                    <li><a href="/guide" class="{% if request.path == '/guide' %}active{% endif %}">How to Vote</a></li>
+                    <li><a href="/faq" class="{% if request.path == '/faq' %}active{% endif %}">FAQ</a></li>
+                    <li><a href="/resources" class="{% if request.path == '/resources' %}active{% endif %}">Resources</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content" class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About</h3>
+                    <p>Your interactive guide to understanding the election process, timelines, and requirements.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Important</h3>
+                    <p>This is an educational tool. Always verify information with your local election office or official state websites.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="https://vote.gov" target="_blank" rel="noopener">Vote.gov</a></li>
+                        <li><a href="https://www.eac.gov" target="_blank" rel="noopener">Election Assistance Commission</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Election Assistant. For educational purposes only.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

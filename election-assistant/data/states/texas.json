@@ -1,0 +1,37 @@
+{
+  "state_code": "TX",
+  "state_name": "Texas",
+  "registration_deadline_days_before": 30,
+  "online_registration": false,
+  "online_registration_url": null,
+  "registration_methods": "Mail or in-person at county voter registrar",
+  "early_voting": true,
+  "early_voting_start_days_before": 17,
+  "mail_in_voting": "restricted",
+  "mail_in_voting_description": "Only available if you are 65+, disabled, out of county, or in jail",
+  "mail_in_voting_eligibility": ["Age 65 or older", "Disability", "Out of county during election", "Confined in jail"],
+  "voter_id_required": true,
+  "accepted_id_types": [
+    "Texas driver's license",
+    "Texas election ID certificate",
+    "Texas personal ID card",
+    "Texas license to carry a handgun",
+    "U.S. military ID with photo",
+    "U.S. citizenship certificate with photo",
+    "U.S. passport"
+  ],
+  "same_day_registration": false,
+  "election_office_phone": "1-800-252-VOTE (8683)",
+  "election_office_website": "https://www.votetexas.gov",
+  "polling_hours": "7:00 AM - 7:00 PM",
+  "special_rules": [
+    "Photo ID is required to vote",
+    "If you don't have ID, you can sign a declaration and provide supporting documentation",
+    "Early voting lasts 12 days"
+  ],
+  "key_dates_override": {
+    "registration_deadline": "2026-10-04",
+    "early_voting_start": "2026-10-17",
+    "mail_ballot_request_deadline": "2026-10-23"
+  }
+}

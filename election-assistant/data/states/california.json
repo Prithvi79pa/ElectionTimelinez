@@ -1,0 +1,27 @@
+{
+  "state_code": "CA",
+  "state_name": "California",
+  "registration_deadline_days_before": 15,
+  "online_registration": true,
+  "online_registration_url": "https://registertovote.ca.gov/",
+  "early_voting": true,
+  "early_voting_start_days_before": 29,
+  "mail_in_voting": "universal",
+  "mail_in_voting_description": "All registered voters automatically receive a mail-in ballot",
+  "voter_id_required": false,
+  "accepted_id_types": ["CA driver's license", "CA ID card", "Utility bill", "Bank statement"],
+  "same_day_registration": true,
+  "same_day_registration_locations": "Available at all vote centers and county elections offices",
+  "election_office_phone": "1-800-345-VOTE (8683)",
+  "election_office_website": "https://www.sos.ca.gov/elections",
+  "polling_hours": "7:00 AM - 8:00 PM",
+  "special_rules": [
+    "Vote centers allow you to vote at any location in your county",
+    "Ballots must be postmarked by Election Day and received within 7 days"
+  ],
+  "key_dates_override": {
+    "registration_deadline": "2026-10-19",
+    "early_voting_start": "2026-10-05",
+    "mail_ballot_request_deadline": "2026-10-27"
+  }
+}

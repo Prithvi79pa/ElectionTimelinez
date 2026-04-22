@@ -1,0 +1,62 @@
+{
+  "steps": [
+    {
+      "id": "check_eligibility",
+      "title": "Check Your Eligibility",
+      "description": "Verify you meet the requirements to vote",
+      "details": [
+        "You must be a U.S. citizen",
+        "You must be at least 18 years old by Election Day",
+        "You must meet your state's residency requirements",
+        "In most states, you cannot be serving a felony sentence (rules vary by state)"
+      ],
+      "action": "Review eligibility requirements for your state",
+      "resources": ["State election website", "Vote.gov eligibility checker"],
+      "estimated_time": "5 minutes"
+    },
+    {
+      "id": "gather_documents",
+      "title": "Gather Required Documents",
+      "description": "Collect the information you'll need to register",
+      "details": [
+        "Driver's license or state ID number",
+        "Social Security number (last 4 digits)",
+        "Current home address",
+        "Mailing address (if different)",
+        "Date of birth",
+        "Optional: political party preference"
+      ],
+      "action": "Have your ID and personal information ready",
+      "resources": ["Driver's license", "Social Security card"],
+      "estimated_time": "10 minutes"
+    },
+    {
+      "id": "register_online_or_mail",
+      "title": "Complete Your Registration",
+      "description": "Submit your voter registration application",
+      "details": [
+        "Online: Use your state's online registration portal (fastest method)",
+        "By mail: Download, print, and mail the National Mail Voter Registration Form",
+        "In person: Visit your local election office or DMV",
+        "You'll receive confirmation once your registration is processed"
+      ],
+      "action": "Choose a registration method and submit your application",
+      "resources": ["State registration website", "National mail form"],
+      "estimated_time": "15 minutes"
+    },
+    {
+      "id": "verify_registration",
+      "title": "Verify Your Registration",
+      "description": "Confirm you're registered and your information is correct",
+      "details": [
+        "Check your registration status 1-2 weeks after applying",
+        "Verify your name, address, and polling location",
+        "Update your registration if you move or change your name",
+        "Re-register if your status shows as inactive"
+      ],
+      "action": "Use your state's voter lookup tool to verify registration",
+      "resources": ["State voter lookup", "Vote.gov status checker"],
+      "estimated_time": "5 minutes"
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <div class="container">
+        <h1>Your Interactive Election Guide</h1>
+        <p class="hero-subtitle">Understand the election process with personalized timelines and step-by-step guidance</p>
+
+        {% if election %}
+        <div class="election-info">
+            <h2>{{ election.election_name }}</h2>
+            <p class="election-date">{{ election.election_date }}</p>
+            <p class="election-description">{{ election.description }}</p>
+        </div>
+        {% endif %}
+
+        <div class="quick-actions">
+            <a href="/timeline" class="btn btn-primary btn-large">View Your Timeline</a>
+            <a href="/guide" class="btn btn-secondary btn-large">Learn How to Vote</a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <section class="features">
+        <h2>How This Works</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📅</div>
+                <h3>Personalized Timeline</h3>
+                <p>See all important dates and deadlines customized for your state, with countdowns to keep you on track.</p>
+                <a href="/timeline" class="feature-link">View Timeline →</a>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">✓</div>
+                <h3>Step-by-Step Guide</h3>
+                <p>Follow clear instructions for registering, requesting ballots, and casting your vote.</p>
+                <a href="/guide" class="feature-link">See Steps →</a>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📍</div>
+                <h3>State-Specific Rules</h3>
+                <p>Get accurate information about voter ID requirements, registration deadlines, and voting methods in your state.</p>
+                <a href="/resources" class="feature-link">Find Resources →</a>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">❓</div>
+                <h3>Common Questions</h3>
+                <p>Find answers to frequently asked questions about registration, voting methods, and Election Day.</p>
+                <a href="/faq" class="feature-link">Read FAQ →</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="state-selector-section">
+        <h2>Select Your State</h2>
+        <p>Get personalized information for your state's election rules and deadlines.</p>
+
+        <div class="state-selector">
+            <label for="state-select" class="sr-only">Choose your state</label>
+            <select id="state-select" class="state-select">
+                <option value="">Choose your state...</option>
+                {% for state in states %}
+                <option value="{{ state.state_code }}">{{ state.state_name }}</option>
+                {% endfor %}
+            </select>
+            <button id="go-to-timeline" class="btn btn-primary">Go to My Timeline</button>
+        </div>
+    </section>
+
+    <section class="important-notice">
+        <h2>Important Notice</h2>
+        <p>This tool provides general educational information about the election process. Election rules and dates can vary by jurisdiction and may change. Always verify information with your local election office or official state website before taking action.</p>
+    </section>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.getElementById('go-to-timeline').addEventListener('click', function() {
+    const state = document.getElementById('state-select').value;
+    if (state) {
+        window.location.href = '/timeline?state=' + state;
+    } else {
+        alert('Please select your state first');
+    }
+});
+</script>
+{% endblock %}

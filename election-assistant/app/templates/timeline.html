@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+
+{% block title %}Election Timeline{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/timeline.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="page-header">
+        <h1>Your Election Timeline</h1>
+        <p>Key dates and deadlines for the {{ timeline.election.election_name }}</p>
+    </div>
+
+    <div class="state-selector-bar">
+        <label for="state-select">Your state:</label>
+        <select id="state-select" class="state-select">
+            <option value="">All states (general)</option>
+            {% for state in states %}
+            <option value="{{ state.state_code }}" {% if selected_state == state.state_code %}selected{% endif %}>
+                {{ state.state_name }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+
+    {% if timeline.state %}
+    <div class="state-info-card">
+        <h2>{{ timeline.state.state_name }} Information</h2>
+        <div class="state-details">
+            <div class="detail-item">
+                <strong>Online Registration:</strong>
+                {% if timeline.state.online_registration %}
+                    ✓ Available - <a href="{{ timeline.state.online_registration_url }}" target="_blank" rel="noopener">Register online</a>
+                {% else %}
+                    ✗ Not available - Register by mail or in person
+                {% endif %}
+            </div>
+            <div class="detail-item">
+                <strong>Early Voting:</strong>
+                {% if timeline.state.early_voting %}
+                    ✓ Available (starts {{ timeline.state.early_voting_start_days_before }} days before Election Day)
+                {% else %}
+                    ✗ Not available
+                {% endif %}
+            </div>
+            <div class="detail-item">
+                <strong>Mail-in Voting:</strong> {{ timeline.state.mail_in_voting_description }}
+            </div>
+            <div class="detail-item">
+                <strong>Voter ID Required:</strong>
+                {% if timeline.state.voter_id_required %}
+                    Yes - See accepted ID types below
+                {% else %}
+                    No
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="countdown-banner">
+        <div class="countdown-content">
+            <div class="countdown-label">Days until Election Day</div>
+            <div class="countdown-number">{{ timeline.days_until_election }}</div>
+            <div class="countdown-date">{{ timeline.election.election_date }}</div>
+        </div>
+    </div>
+
+    {% if timeline.next_action %}
+    <div class="next-action-card priority-{{ timeline.next_action.priority }}">
+        <h2>Your Next Step</h2>
+        <div class="action-content">
+            <h3>{{ timeline.next_action.action }}</h3>
+            <p>{{ timeline.next_action.description }}</p>
+            {% if timeline.next_action.days_remaining is defined %}
+            <div class="action-deadline">
+                <strong>{{ timeline.next_action.days_remaining }} days remaining</strong>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="timeline-container">
+        <h2>Key Dates & Deadlines</h2>
+
+        <div class="timeline">
+            {% for event in timeline.events %}
+            <div class="timeline-event {% if event.is_past %}past{% elif event.is_today %}today{% elif event.is_urgent %}urgent{% endif %} urgency-{{ event.urgency }}">
+                <div class="event-marker"></div>
+                <div class="event-content">
+                    <div class="event-date">
+                        {{ event.date }}
+                        {% if event.state_customized %}
+                        <span class="state-badge">{{ timeline.state.state_code }}</span>
+                        {% endif %}
+                    </div>
+                    <h3 class="event-title">{{ event.event }}</h3>
+                    <p class="event-description">{{ event.description }}</p>
+                    {% if not event.is_past %}
+                    <div class="event-countdown">
+                        {% if event.is_today %}
+                            Today!
+                        {% elif event.days_until == 1 %}
+                            Tomorrow
+                        {% elif event.days_until < 0 %}
+                            {{ event.days_until|abs }} days ago
+                        {% else %}
+                            In {{ event.days_until }} days
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="action-buttons">
+        <a href="/guide" class="btn btn-primary">Learn How to Vote</a>
+        <a href="/resources{% if selected_state %}?state={{ selected_state }}{% endif %}" class="btn btn-secondary">Find Resources</a>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/timeline.js') }}"></script>
+{% endblock %}
